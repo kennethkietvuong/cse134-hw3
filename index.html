@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenneth's Personal Portfolio (Phase 1)</title>
+
+    
+    <script>
+        class HelloWorldElement extends HTMLElement {
+            constructor() {
+                super();
+                console.log("Hello world!")
+            }
+        }
+
+        customElements.define('hello-world', HelloWorldElement);
+    </script>
+
+    <style>
+        profile-card {
+            display: block;
+            padding: 0;
+            margin: 0;
+            border: 1px dashed black;
+        }
+    </style>
+</head>
+<body>
+    <noscript>Note: Your browser currently has JavaScript disabled!!</noscript>
+
+    <hello-world></hello-world>
+
+    <header>
+        <span><b>Kenneth</b></span>
+
+        <nav>
+            <ul>
+                <li><a href="index.html"><strong>Home</strong></a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="roadmap.html">Roadmap</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+                <li><a href="experiments.html">Experiments</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <profile-card>
+            <section>
+                <h1>Hey, I'm Kenneth.</h1>
+                <p>
+                    I'm a <em>computer engineering</em> student with a passion for embedded systems and software engineering.
+                    <br>
+                    I love to build things that are <i>practical</i>, <i>reliable</i>, and <i>fun</i>.
+                </p>
+    
+                <picture>
+                    <img src="assets/img/myself_small.jpeg" alt="profile photo">
+                </picture>
+    
+                <svg role="img" width="120" height="120" viewBox="0 0 100 100">
+                    <polygon points="50,0 100,50 50,100 0,50"></polygon>
+                </svg>
+    
+                <div>
+                    <button type="button">Contact Me</button>
+                    <button type="button">Resume</button>
+                </div>
+    
+            </section>
+        </profile-card>
+        
+        <section>
+            <h2>Quick Links</h2>
+            <ol>
+                <li><a href="projects.html">See my projects</a></li>
+                <li><a href="skills.html">Check my skills</a></li>
+                <li><a href="roadmap.html">View my roadmap</a></li>
+            </ol>
+        </section>
+
+        <section>
+            <h3>Portfolio Progress</h3>
+            <p><em>Current progress: </em></p>
+            <progress value="30" max="100">30%</progress>
+        </section>
+
+        <section>
+            <h3>Resume Preview</h3>
+            <iframe title="Resume preview" src="assets/documents/resume_placeholder.pdf"></iframe>
+        </section>
+
+        <dialog open>
+            <h3>Hey there!</h3>
+            <p>Thanks for visiting my portfolio!</p>
+            <form method="dialog">
+                <button>Close</button>
+            </form>
+        </dialog>
+        
+        <article>
+            <h2>About This Site</h2>
+            <p><span>Currently at phase 1 of my portfolio...which is just pure semantic HTML.</span></p>
+        </article>
+
+        <section>
+            <h3>Contact Me!</h3>
+            <form action="placeholder" method="post">
+                <fieldset>
+                    <legend>Leave me a message</legend>
+                    <label for="home-email">Email</label>
+                    <input id="home-email" name="email" type="email">
+                    <label for="home-message">Message</label>
+                    <textarea id="home-message" name="message"></textarea>
+                    <button type="button">Submit</button>
+                </fieldset>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="https://github.com/kennethkietvuong">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/kenneth-vuong-866989253/">LinkedIn</a></li>
+            </ul>
+        </nav>
+        <p>&copy; <span>2025</span> - <strong>Kenneth Vuong</strong></p>
+    </footer>
+</body>
+</html>

@@ -7,6 +7,9 @@
     --text-color: #222;
 
     --button-color: #333;
+
+    --font-size-adjust-body: 0.52;
+    --font-size-adjust-heading: 0.54;
 }
 
 /* Simple reset */
@@ -120,7 +123,7 @@ footer {
 
     p {
         font-size: 0.9rem;
-        color: var(--text-color);
+        color: var(--text-color, #222);
         margin: 0;
     }
 }
@@ -136,7 +139,8 @@ body {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal, 400);
+    font-size-adjust: var(--font-size-adjust-body, 0.5); /* baseline 2024 feature*/
     line-height: 1.6;
     color: var(--text-color);
     background-color: #fffdf8;
@@ -146,8 +150,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold, 700);
     font-style: normal;
+    font-size-adjust: var(--font-size-adjust-heading, 0.5); /* baseline 2024 feature*/
 }
 
 header > span {

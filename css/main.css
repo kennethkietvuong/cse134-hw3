@@ -320,7 +320,7 @@ profile-card {
         opacity: 0;
     }
 
-    button {
+    button, .btn {
         font-family: "Montserrat", sans-serif;
         font-weight: 600;
         font-size: 1rem;
@@ -332,10 +332,13 @@ profile-card {
         background-color: transparent;
         color: #333;
 
+        text-decoration: none;
+        display: inline-block;
+
         cursor: pointer;
         transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
 
-        &:hover /*, &:focus*/ {
+        &:hover {
             background-color: #333;
             color: #fff;
             transform: translateY(-2px);

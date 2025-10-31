@@ -98,24 +98,44 @@ body {
 }
 
 main {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-areas:
+        "intro visual"
+        "quick quick";
     gap: 1.25rem;
     padding: 1rem 2rem;
     max-width: 1200px;
     margin: 1rem auto 0 auto;
-    flex: 1;
+    flex: 1
 }
 
 profile-card {
+    grid-area: intro;
     display: block;
-    flex: 1 1 42rem;
-    min-width: 18rem;
+}
+
+#profile-photo {
+    grid-area: visual;
+    place-self: center;
+
+    svg {
+        width: min(42vw, 420px);
+        height: auto;
+        display: block;
+    }
+
+    polygon {
+        fill: #e6e6e6;
+    }
 }
 
 #quick-links {
-    flex: 1 1 20rem;
-    min-width: 16rem;
+    grid-area: quick;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: #f2f2f2;
+    border-radius: 6px;
 }
 
 #intro {

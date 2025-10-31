@@ -10,7 +10,8 @@ body, h1, h2, h3, ul {
 }
 
 header {
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    border-bottom: 2px solid gray;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,11 +19,12 @@ header {
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
+    font-size: clamp(1rem, 1.5vw, 1.45rem);
     
     nav {
         ul {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             list-style: none;
         }
     
@@ -41,7 +43,8 @@ header {
 
 
 footer {
-    border: 2px solid red;
+    /* border: 2px solid red; */
+    border-top: 2px solid gray;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -144,6 +147,7 @@ main {
 profile-card {
     grid-area: intro;
     display: block;
+    place-self: center;
 }
 
 #profile-photo {
@@ -181,12 +185,18 @@ profile-card {
         grid-area: title;
         margin: 0;
         max-width: 22ch;
+
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        /* background-color: #f2f2f2; */
+        /* padding: 0.25em; */
     }
 
     & > p {
         grid-area: copy;
         margin: 0;
         max-width: 42ch;
+        font-size: clamp(1rem, 1.5vw, 1.45rem);
+        line-height: 1.7;
     }
 
     & > div {
@@ -195,5 +205,32 @@ profile-card {
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
+    }
+
+    button {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        letter-spacing: 0.02em;
+
+        padding: 0.6em 1.2em;
+        border: 2px solid #333;
+        border-radius: 6px;
+        background-color: transparent;
+        color: #333;
+
+        cursor: pointer;
+        transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
+
+        &:hover /*, &:focus*/ {
+            background-color: #333;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            transform: translateY(0);
+            background-color: #555;
+        }
     }
 }

@@ -180,15 +180,48 @@ profile-card {
 #profile-photo {
     grid-area: visual;
     place-self: center;
+    text-align: center;
 
-    svg {
+    .spin-trigger svg {
         width: min(42vw, 420px);
         height: auto;
         display: block;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        transform-origin: center;
     }
 
-    polygon {
+    /* polygon {
         fill: #e6e6e6;
+    } */
+
+    .click-hint {
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: #555;
+        font-style: italic;
+        opacity: 0.8;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    &:hover .click-hint {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
+}
+
+#spin-toggle:checked + .spin-trigger svg {
+    animation: profile-photo-spin 1.2s ease-in-out;
+}
+
+@keyframes profile-photo-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }
 

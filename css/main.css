@@ -34,12 +34,35 @@ header {
     
         a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-color);
             font-weight: 500;
-            transition: color 0.2s ease;
+            transition: color 0.3s ease;
+            position: relative; 
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -3px;
+                width: 0%;
+                height: 2px;
+                background-color: var(--accent-color);
+                transition: width 0.3s ease, opacity 0.3s ease;
+                opacity: 0;
+            }
 
             &:hover {
-                color: blue;
+                color: var(--accent-hover);
+
+                &::after {
+                    width: 100%;
+                    opacity: 1;
+                }
+            }
+
+            &.active::after {
+                width: 100%;
+                opacity: 1;
             }
         }
     }

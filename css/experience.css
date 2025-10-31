@@ -273,13 +273,16 @@ main {
 
                 time {
                     position: absolute;
-                    top: calc(50% + (var(--diamond-size) / 2) + var(--diamond-gap));
-                    left: 50%;
-                    transform: translateX(-50%);
+                    top: 50%;
+                    /* transform: translateX(-50%); */
+                    transform: translateY(-50%);
                     line-height: 1;
                     font-weight: 600;
                     font-size: clamp(.85rem, 1.1vw, 1rem);
                     color: #667788;
+
+                    white-space: nowrap;
+                    pointer-events: none;
                 }
             }
 
@@ -288,11 +291,21 @@ main {
                 & > article {
                     grid-column: 1;
                 }
+
+                & > center-diamond time {
+                    left: calc(50% + (var(--diamond-size) / 2) + var(--diamond-gap));
+                    text-align: left;
+                }
             }
 
             &:nth-child(even) {
                 & > article {
                     grid-column: 3;
+                }
+
+                & > center-diamond time {
+                    right: calc(50% + (var(--diamond-size) / 2) + var(--diamond-gap));
+                    text-align: right;
                 }
             }
 
@@ -376,6 +389,11 @@ main {
     #career-timeline > ol > li > center-diamond { grid-column: 1; }
     #career-timeline > ol > li > article::before,
     #career-timeline > ol > li > article::after { display: none; }
+
+    #career-timeline > ol > li > center-diamond svg,
+    #career-timeline > ol > li > center-diamond time {
+        display: none !important;
+    }
 }
 
 /* No Animation Responsiveness */

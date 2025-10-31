@@ -1,3 +1,8 @@
+:root {
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+}
+
 /* Simple reset */
 body, h1, h2, h3, ul {
     margin: 0;
@@ -95,6 +100,31 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
+    color: #222;
+    background-color: #fffdf8;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: var(--font-weight-bold);
+    font-style: normal;
+}
+
+header > span {
+    font-weight: 900;
+    letter-spacing: 0.02em;
+}
+
+em, i {
+    font-style: italic;
 }
 
 main {
@@ -103,7 +133,8 @@ main {
     grid-template-areas:
         "intro visual"
         "quick quick";
-    gap: 1.25rem;
+    gap: 1.25rem 2rem;
+    align-items: start;
     padding: 1rem 2rem;
     max-width: 1200px;
     margin: 1rem auto 0 auto;
@@ -131,27 +162,38 @@ profile-card {
 }
 
 #quick-links {
-    grid-area: quick;
-    margin-top: 0.5rem;
-    padding: 0.75rem 1rem;
-    background: #f2f2f2;
-    border-radius: 6px;
+        grid-area: quick;
+        margin-top: 0.5rem;
+        padding: 0.75rem 1rem;
+        background: #f2f2f2;
+        border-radius: 6px;
 }
 
 #intro {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    display: grid;
+    grid-template-areas:
+        "title"
+        "copy"
+        "actions";
+    row-gap: 0.9rem;
 
-    picture, img, svg {
-        max-width: 100%;
-        height: auto;
-        display: block;
+    & > h1 {
+        grid-area: title;
+        margin: 0;
+        max-width: 22ch;
     }
 
-    div {
+    & > p {
+        grid-area: copy;
+        margin: 0;
+        max-width: 42ch;
+    }
+
+    & > div {
+        grid-area: actions;
+
         display: flex;
-        gap: 0.5rem;
+        gap: 1rem;
         flex-wrap: wrap;
     }
 }

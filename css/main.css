@@ -26,10 +26,10 @@ header {
             color: #333;
             font-weight: 500;
             transition: color 0.2s ease;
-        }
-    
-        a:hover {
-            color: #0077cc;
+
+            &:hover {
+                color: blue;
+            }
         }
     }
 }

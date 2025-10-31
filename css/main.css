@@ -308,7 +308,7 @@ profile-card {
         opacity: 0;
     }
 
-    & > div {
+    & > button-container {
         grid-area: actions;
 
         display: flex;

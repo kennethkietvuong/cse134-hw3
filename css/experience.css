@@ -186,12 +186,19 @@ main {
         text-align: center;
         margin: 1.25rem 0 0.25rem;
         font-weight: var(--font-weight-bold, 700);
+
+        animation: fadeInUp .8s ease-out forwards;
+        opacity: 0;
     }
 
     & > p {
         text-align: center;
         margin: 0 0 2rem 0;
         color: color-mix(in oklab, var(--text-color, #222) 80%, white);
+
+        animation: fadeInUp .8s ease-out forwards;
+        animation-delay: 0.15s;
+        opacity: 0;
     }
 
     & > ol {
@@ -211,7 +218,9 @@ main {
             position: absolute;
             inset-block: 0;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) scaleY(0);
+            transform-origin: top;
+            animation: growLine 1s ease-out forwards .15s;
             width: 4px;
             border-radius: 2px;
             background: #cfd6dd;
@@ -236,8 +245,10 @@ main {
                 padding: 1rem 1.25rem;
                 box-shadow: 0 1px 0 rgba(0,0,0,0.04);
                 position: relative;
-
                 grid-row: 1;
+                animation: fadeInUp .7s ease-out forwards;
+                will-change: transform, opacity;
+                opacity: 0;
             }
 
             & > center-diamond {
@@ -248,6 +259,9 @@ main {
                 min-height: var(--diamond-size);
                 padding-top: 0.35rem;
                 grid-row: 1;
+                animation: fadeInUp .7s ease-out forwards;
+                will-change: transform, opacity;
+                opacity: 0;
 
                 svg {
                     position: absolute;
@@ -291,6 +305,9 @@ main {
                 height: 0;
                 border-top: 2px dotted #b8c2cc;
                 width: var(--rail-gap);
+
+                animation: drawRail .6s ease-out forwards;
+                animation-delay: inherit;
             }
 
             &:nth-child(odd) > article::after {
@@ -300,6 +317,12 @@ main {
             &:nth-child(even) > article::before {
                 left: calc(-1 * var(--rail-gap));
             }
+
+            /* Add 0.15s per new card */
+            &:nth-child(1) > * { animation-delay: .30s; }
+            &:nth-child(2) > * { animation-delay: .45s; }
+            &:nth-child(3) > * { animation-delay: .60s; }
+            &:nth-child(4) > * { animation-delay: .75s; }
         }
 
         polygon {
@@ -319,6 +342,30 @@ main {
     }
 }
 
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes growLine { 
+    to { 
+        transform: translateX(-50%) scaleY(1); 
+    } 
+}
+
+@keyframes drawRail {
+    to { 
+        width: var(--rail-gap); opacity: 1; 
+    }
+}
+
 @media (max-width: 700px){
     #career-timeline > ol::before { display: none; }
     #career-timeline > ol > li {
@@ -329,4 +376,20 @@ main {
     #career-timeline > ol > li > center-diamond { grid-column: 1; }
     #career-timeline > ol > li > article::before,
     #career-timeline > ol > li > article::after { display: none; }
+}
+
+/* No Animation Responsiveness */
+@media (prefers-reduced-motion: reduce) {
+    #career-timeline > h1,
+    #career-timeline > p,
+    #career-timeline > ol::before,
+    #career-timeline > ol > li > article,
+    #career-timeline > ol > li > center-diamond,
+    #career-timeline > ol > li > article::before,
+    #career-timeline > ol > li > article::after {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
 }

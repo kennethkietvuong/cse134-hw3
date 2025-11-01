@@ -176,3 +176,160 @@ main {
     padding: 2dvh 4dvw;
     min-height: 80dvh;
 }
+
+#skill-container {
+    padding-block: 2rem;
+
+    & > h1 {
+        text-align: center;
+        margin: 1.25rem 0 0.25rem;
+        font-weight: var(--font-weight-bold, 700);
+
+        animation: fadeInUp .6s ease-out forwards;
+        opacity: 0;
+    }
+
+    & > p {
+        text-align: center;
+        margin: 0 0 2rem 0;
+        color: color-mix(in oklab, var(--text-color, #222) 80%, white);
+
+        animation: fadeInUp .6s ease-out forwards;
+        animation-delay: 0.15s;
+        opacity: 0;
+    }
+
+    .skill-category {
+        margin: 2rem 0 0.75rem;
+        font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+        color: color-mix(in oklab, var(--text-color, #222) 85%, #667);
+        font-weight: 700;
+
+        &:not(:first-of-type) {
+            margin-top: 3.5rem;
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.5rem;
+        align-items: stretch;
+
+        & > li {
+            display: flex;
+
+            & > skill-card {
+                flex: 1 1 auto;
+            }
+        }
+
+        & > li:nth-child(1) .skill-card { animation-delay: .05s; }
+        & > li:nth-child(2) .skill-card { animation-delay: .10s; }
+        & > li:nth-child(3) .skill-card { animation-delay: .15s; }
+        & > li:nth-child(4) .skill-card { animation-delay: .20s; }
+        & > li:nth-child(5) .skill-card { animation-delay: .25s; }
+        & > li:nth-child(6) .skill-card { animation-delay: .30s; }
+    }
+
+    skill-card {
+        background: #f6f7f9;
+        border: 1px solid #e5e9ef;
+        border-radius: 12px;
+        padding: 1rem 1.1rem;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        
+        transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        animation: fadeInUp .6s ease-out forwards;
+        opacity: 0;
+
+        &:where(:hover, :focus-within) {
+            transform: translateY(-2px);
+            border-color: color-mix(in oklab, var(--accent-color, #0077cc) 40%, #e5e9ef);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+        }
+
+        picture {
+            inline-size: 52px;
+            block-size: 52px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: #eaf2fb;
+            border: 1px solid color-mix(in oklab, var(--accent-color, #0077cc) 35%, #eaf2fb);
+
+            img, svg {
+                inline-size: 28px;
+                block-size: 28px;
+                object-fit: contain;
+            }
+        }
+
+        h3 {
+            margin: 0.1rem 0 0;
+            font-size: clamp(1rem, 1.2vw, 1.05rem);
+            line-height: 1.2;
+        }
+
+        p {
+            margin: 0;
+            color: color-mix(in oklab, var(--text-color, #222) 80%, #999);
+            font-size: 0.95rem;
+        }
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+    #skill-container { 
+        padding-block: 1.25rem; 
+    }
+
+    .group-title { 
+        margin-top: 1.5rem; 
+    }
+}
+
+@media (max-width: 1200px){
+    #skill-container ul { 
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+    }
+}
+
+@media (max-width: 900px) {
+    #skill-container ul { 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    }
+}
+
+@media (max-width: 560px) {
+    #skill-container ul { 
+        grid-template-columns: 1fr; 
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .skill-card, #skill-container > h1, #skill-container > p {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

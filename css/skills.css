@@ -233,7 +233,10 @@ main {
         padding: 0;
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 1.5rem;
+        /* gap: 1.5rem; */
+        column-gap: 1.5rem;
+        row-gap: 3.75rem;
+
         align-items: stretch;
 
         & > li {
@@ -283,8 +286,8 @@ main {
             border: 1px solid color-mix(in oklab, var(--accent-color, #0077cc) 35%, #eaf2fb);
 
             img, svg {
-                inline-size: 28px;
-                block-size: 28px;
+                inline-size: 40px;
+                block-size: 40px;
                 object-fit: contain;
             }
         }

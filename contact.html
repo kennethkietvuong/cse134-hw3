@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <span><b>Kenneth</b></span>
+        <span><b>Kenneth's Portfolio</b></span>
 
         <nav>
             <ul>
@@ -28,19 +28,21 @@
     </header>
 
     <main>
-        <h1>Contact Me</h1>
+        <section class="intro-title">
+            <h1>Contact Me</h1>
+            <p><em>Feel free to reach out to me.</em></p>
+        </section>
 
-        <form action="#" method="post">
-            <fieldset>
+        <form action="#" method="post" id="contact-form">
+            <fieldset class="contact-card">
                 <legend>Send me a message</legend>
                 <label for="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Name" required>
+                <input id="name" name="name" type="text" placeholder="Your name" required autocomplete="name">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="Email" required>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Your message here" required></textarea>
-                <br>
-                <button type="button">Submit</button>
+                <textarea id="message" name="message" placeholder="Your message here" required rows="6"></textarea>
+                <button type="submit">Submit</button>
             </fieldset>
         </form>
     </main>

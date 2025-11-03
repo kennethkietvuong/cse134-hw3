@@ -28,90 +28,92 @@
     </header>
 
     <main>
-        <section>
+        <section class="intro-title">
             <h1>Roadmap</h1>
             <p><em>This is a <q>Kanban</q> style living roadmap of my to-do list</em></p>
         </section>
 
-        <!-- Todo -->
-        <section>
-            <h2 id="todo">To-Do</h2>
-            <ul>
-                <li>
-                    <article>
-                        <h3>Card title</h3>
-                        <p>Lorem ipsum.</p>
-                    </article>
-                </li>
-
-                <li>
-                    <article>
-                        <h3>Card title</h3>
-                        <p>Lorem ipsum</p>
-                    </article>
-                </li>
-            </ul>
-        </section>
-
-        <!-- In Progress -->
-        <section>
-            <h2 id="in-progress">In Progress</h2>
-            <ul>
-                <li>
-                    <article>
-                        <h3>Card title</h3>
-                        <p>Lorem ipsum.</p>
-                    </article>
-                </li>
-
-                <li>
-                    <article>
-                        <h3>Card title</h3>
-                        <p>Lorem ipsum</p>
-                    </article>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Reviewing -->
-        <section>
-            <h2 id="reviewing">Reviewing</h2>
-            <ul>
-                <li>
-                    <article>
-                        <h3>Card title</h3>
-                        <p>Lorem ipsum.</p>
-                    </article>
-                </li>
-
-                <li>
-                    <article>
-                        <h3>Card title</h3>
-                        <p>Lorem ipsum</p>
-                    </article>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Done -->
-        <section>
-            <h2 id="done">Done</h2>
-            <ul>
-                <li>
-                    <article>
-                        <h3>Card title</h3>
-                        <p>Lorem ipsum.</p>
-                    </article>
-                </li>
-
-                <li>
-                    <article>
-                        <h3>Card title</h3>
-                        <p>Lorem ipsum</p>
-                    </article>
-                </li>
-            </ul>
-        </section>
+        <kanban-container>
+            <!-- Todo -->
+            <section class="col">
+                <h2 id="todo">To-Do</h2>
+                <ul>
+                    <li>
+                        <kanban-task>
+                            <h3>Card title</h3>
+                            <p>Lorem ipsum.</p>
+                        </kanban-task>
+                    </li>
+    
+                    <li>
+                        <kanban-task>
+                            <h3>Card title</h3>
+                            <p>Lorem ipsum</p>
+                        </kanban-task>
+                    </li>
+                </ul>
+            </section>
+    
+            <!-- In Progress -->
+            <section class="col">
+                <h2 id="in-progress">In Progress</h2>
+                <ul>
+                    <li>
+                        <kanban-task>
+                            <h3>Card title</h3>
+                            <p>Lorem ipsum.</p>
+                        </kanban-task>
+                    </li>
+    
+                    <li>
+                        <kanban-task>
+                            <h3>Card title</h3>
+                            <p>Lorem ipsum</p>
+                        </kanban-task>
+                    </li>
+                </ul>
+            </section>
+    
+            <!-- Reviewing -->
+            <section class="col">
+                <h2 id="reviewing">Reviewing</h2>
+                <ul>
+                    <li>
+                        <kanban-task>
+                            <h3>Card title</h3>
+                            <p>Lorem ipsum.</p>
+                        </kanban-task>
+                    </li>
+    
+                    <li>
+                        <kanban-task>
+                            <h3>Card title</h3>
+                            <p>Lorem ipsum</p>
+                        </kanban-task>
+                    </li>
+                </ul>
+            </section>
+    
+            <!-- Done -->
+            <section class="col">
+                <h2 id="done">Done</h2>
+                <ul>
+                    <li>
+                        <kanban-task>
+                            <h3>Card title</h3>
+                            <p>Lorem ipsum.</p>
+                        </kanbtan-task>
+                    </li>
+    
+                    <li>
+                        <kanban-task>
+                            <h3>Card title</h3>
+                            <p>Lorem ipsum</p>
+                        </kanban-task>
+                    </li>
+                </ul>
+            </section>
+        </kanban-container>
     </main>
 
     <footer>

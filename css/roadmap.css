@@ -173,6 +173,137 @@ main {
     flex: 1 0 auto;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2dvh 4dvw;
+    padding: 2dvh 4dvw 4rem;
     min-height: 80dvh;
+
+    .intro-title {
+        h1 {
+            text-align: center;
+            margin: 1.25rem 0 0.25rem;
+            font-weight: var(--font-weight-bold, 700);
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        p {
+            text-align: center;
+            margin: 0 0 1.25rem;
+            color: color-mix(in oklab, var(--text-color, #222) 80%, white);
+            animation: fadeInUp 0.6s ease-out both 0.12s;
+        }
+    }
+}
+
+kanban-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    align-items: start;
+
+    width: min(95vw, 1200px);
+    margin: 0 auto;
+
+    background: #ffffffcc;
+    padding: 1.25rem;
+
+    border: 1px solid #e5e9ef;
+    border-radius: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+
+    .col {
+        background: #fafbfc;
+        border: 1px solid #e5e9ef;
+        border-radius: 12px;
+        padding: 0.75rem 0.75rem 1rem;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+        animation: fadeInUp 0.55s ease-out both;
+
+        h2 {
+            text-align: center;
+            margin: 0.25rem 0 0.6rem;
+            font-size: clamp(1.05rem, 1.2vw, 1.1rem);
+            color: color-mix(in oklab, var(--text-color, #222) 85%, #667);
+            font-weight: var(--font-weight-bold, 700);
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            kanban-task {
+                position: relative;
+                background: #f6f7f9;
+                border: 1px solid #e5e9ef;
+                border-radius: 12px;
+                padding: 0.9rem 1rem;
+                box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+                display: flex;
+                flex-direction: column;
+                gap: 0.4rem;
+                transition: transform 0.18s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+                will-change: transform, box-shadow;
+
+                &:hover {
+                    transform: translateY(-3px);
+                    border-color: color-mix(in oklab, var(--accent-color, #0077cc) 40%, #e5e9ef);
+                    box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+                }
+
+                h3 {
+                    margin: 0;
+                    font-size: 1rem;
+                }
+
+                p {
+                    margin: 0;
+                    color: color-mix(in oklab, var(--text-color, #222) 80%, #999);
+                    font-size: 0.95rem;
+                }
+            }
+        }
+
+        &:nth-child(1) { animation-delay: .10s; }
+        &:nth-child(2) { animation-delay: .20s; }
+        &:nth-child(3) { animation-delay: .30s; }
+        &:nth-child(4) { animation-delay: .40s; }
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 560px) { 
+    .kanban { 
+        grid-template-columns: 1fr; 
+    } 
+}
+
+@media (max-width: 900px) { 
+    .kanban { 
+        grid-template-columns: repeat(2, 1fr); 
+    } 
+}
+
+@media (max-width: 1200px) { 
+    .kanban { 
+        grid-template-columns: repeat(3, 1fr); 
+    } 
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kanban > .column, #roadmap .intro h1, #roadmap .intro p {
+    animation: none !important;
+    }
 }

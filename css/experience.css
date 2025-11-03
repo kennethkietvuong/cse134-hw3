@@ -246,9 +246,16 @@ main {
                 box-shadow: 0 1px 0 rgba(0,0,0,0.04);
                 position: relative;
                 grid-row: 1;
-                animation: fadeInUp .7s ease-out forwards;
+                animation: cardFadeIn .7s ease-out forwards;
+                transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
                 will-change: transform, opacity;
-                opacity: 0;
+                opacity: 0; 
+
+                &:hover {
+                    transform: translateY(-3px);
+                    border-color: color-mix(in oklab, var(--accent-color, #0077cc) 40%, #e5e9e5);
+                    box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+                }
             }
 
             & > center-diamond {
@@ -364,6 +371,16 @@ main {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
 

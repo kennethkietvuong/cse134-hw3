@@ -276,6 +276,23 @@ main {
                     transform: translateY(-50%);
                     block-size: var(--diamond-size);
                     inline-size: var(--diamond-size);
+
+                    image {
+                        transform-origin: center;
+
+                        &.education {
+                            transform: scale(0.85);
+                        }
+
+                        &.employment {
+                            transform: scale(0.9);
+                        }
+
+                        &.volunteer {
+                            transform: scale(0.85);
+                        }
+
+                    }
                 }
 
                 time {
@@ -343,6 +360,8 @@ main {
             &:nth-child(2) > * { animation-delay: .45s; }
             &:nth-child(3) > * { animation-delay: .60s; }
             &:nth-child(4) > * { animation-delay: .75s; }
+            &:nth-child(5) > * { animation-delay: .90s; }
+            &:nth-child(6) > * { animation-delay: 1.05s; }
         }
 
         polygon {

@@ -13,6 +13,7 @@
 
     --header-footer-color: #f8f8f8;
     --body-background-color: #f0f0f0;
+    --center-line-color: gray;
 }
 
 /* Simple reset */
@@ -22,7 +23,6 @@ body, h1, h2, h3, ul {
 }
 
 header {
-    /* border: 2px solid red; */
     border-bottom: 2px solid gray;
     display: flex;
     justify-content: space-between;
@@ -78,7 +78,6 @@ header {
 }
 
 footer {
-    /* border: 2px solid red; */
     border-top: 2px solid gray;
     display: flex;
     justify-content: space-between;
@@ -226,7 +225,7 @@ main {
             animation: growLine 1s ease-out forwards .15s;
             width: 4px;
             border-radius: 2px;
-            background: #cfd6dd;
+            background: var(--center-line-color);
             opacity: 0.9;
             z-index: 0;
         }

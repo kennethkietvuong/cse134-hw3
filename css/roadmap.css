@@ -10,6 +10,9 @@
 
     --font-size-adjust-body: 0.52;
     --font-size-adjust-heading: 0.54;
+
+    --header-footer-color: #f8f8f8;
+    --body-background-color: #f0f0f0;
 }
 
 /* Simple reset */
@@ -24,7 +27,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: var(--header-footer-color, white);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -80,7 +83,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: var(--header-footer-color, white);
     padding: 1rem 2rem;
     margin-top: 2rem;
 
@@ -148,7 +151,7 @@ body {
     font-size-adjust: var(--font-size-adjust-body, 0.5); /* baseline 2024 feature*/
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #fffdf8;
+    background-color: var(--body-background-color);
     margin: 0;
 }
 
@@ -218,6 +221,22 @@ kanban-grid {
         box-shadow: 0 1px 0 rgba(0,0,0,0.04);
         animation: fadeInUp 0.55s ease-out both;
 
+        &#done {
+            background: color(display-p3 0.55 0.85 0.55);
+        }
+
+        &#reviewing {
+            background: color(display-p3 1 0.65 0.45);
+        }
+
+        &#in-progress {
+            background: color(display-p3 1 0.85 0.45);
+        }
+
+        &#todo {
+            background: color(display-p3 0.9 0.9 0.9);
+        }
+
         h2 {
             text-align: center;
             margin: 0.25rem 0 0.6rem;
@@ -285,26 +304,71 @@ kanban-grid {
     }
 }
 
-@media (max-width: 560px) { 
-    .kanban { 
-        grid-template-columns: 1fr; 
+/* Desktops */
+@media (max-width: 1025px) { 
+    kanban-grid { 
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
     } 
 }
 
-@media (max-width: 900px) { 
-    .kanban { 
-        grid-template-columns: repeat(2, 1fr); 
+/* Tablets/Laptops */
+@media (min-width: 601px) and (max-width: 1024px) { 
+    kanban-grid { 
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
     } 
 }
 
-@media (max-width: 1200px) { 
-    .kanban { 
-        grid-template-columns: repeat(3, 1fr); 
-    } 
+/* Mobile */
+@media (max-width: 600px) { 
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+
+
+        nav ul {
+            flex-direction: column;
+            gap: 0.6rem;
+            width: 100%;
+
+            a {
+                font-size: 1.05rem;
+                display: block;
+            
+                &.active::after {
+                    width: 85%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    kanban-grid { 
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+        padding: 0.75rem;
+
+        .col {
+            padding: 0.65rem 0.65rem 0.9rem;
+
+            ul {
+                gap: 0.65rem;
+            }
+        }
+    }
+
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
 }
 
+/* No Animation Responsiveness */
 @media (prefers-reduced-motion: reduce) {
-    .kanban > .column, #roadmap .intro h1, #roadmap .intro p {
-    animation: none !important;
+    * {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 }

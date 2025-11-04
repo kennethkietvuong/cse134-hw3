@@ -10,6 +10,9 @@
 
     --font-size-adjust-body: 0.52;
     --font-size-adjust-heading: 0.54;
+
+    --header-footer-color: #f8f8f8;
+    --body-background-color: #f0f0f0;
 }
 
 /* Simple reset */
@@ -24,7 +27,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: var(--header-footer-color);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -80,7 +83,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: var(--header-footer-color, white);
     padding: 1rem 2rem;
     margin-top: 2rem;
 
@@ -148,7 +151,7 @@ body {
     font-size-adjust: var(--font-size-adjust-body, 0.5); /* baseline 2024 feature*/
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #fffdf8;
+    background-color: var(--body-background-color);
     margin: 0;
 }
 
@@ -328,27 +331,67 @@ main {
     }
 }
 
-@media (max-width: 1200px){
+/* Desktops */
+@media (max-width: 1025px) {
     #skill-container ul { 
         grid-template-columns: repeat(3, minmax(0, 1fr)); 
     }
 }
 
-@media (max-width: 900px) {
+/* Tablets/Laptops */
+@media (min-width: 601px) and (max-width: 1024px) {
     #skill-container ul { 
         grid-template-columns: repeat(2, minmax(0, 1fr)); 
     }
 }
 
-@media (max-width: 560px) {
+/* Mobile */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+
+
+        nav ul {
+            flex-direction: column;
+            gap: 0.6rem;
+            width: 100%;
+
+            a {
+                font-size: 1.05rem;
+                display: block;
+            
+                &.active::after {
+                    width: 50%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    
     #skill-container ul { 
-        grid-template-columns: 1fr; 
+        grid-template-columns: repeat(2, minmax(160px, 1fr));
+        column-gap: 1rem;
+        row-gap: 3rem;
+        justify-content: center;
+
+        & > li {
+            
+            skill-card {
+                width: 100%;
+                max-width: 260px;
+                margin: 0 auto;
+            }
+        }
     }
 }
 
+/* No Animation Responsiveness */
 @media (prefers-reduced-motion: reduce) {
-    .skill-card, #skill-container > h1, #skill-container > p {
+    * {
         animation: none !important;
+        transition: none !important;
         opacity: 1 !important;
         transform: none !important;
     }

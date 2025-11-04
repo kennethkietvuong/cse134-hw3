@@ -10,6 +10,9 @@
 
     --font-size-adjust-body: 0.52;
     --font-size-adjust-heading: 0.54;
+
+    --header-footer-color: #f8f8f8;
+    --body-background-color: #f0f0f0;
 }
 
 /* Simple reset */
@@ -24,7 +27,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: var(--header-footer-color, white);
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -81,7 +84,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: var(--header-footer-color, white);
     padding: 1rem 2rem;
     margin-top: 2rem;
     flex: 0 0 auto;
@@ -147,7 +150,7 @@ body {
     font-size-adjust: var(--font-size-adjust-body, 0.5); /* baseline 2024 feature*/
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #fffdf8;
+    background-color: var(--body-background-color, #f1f1f1);
     margin: 0;
 
     min-height: 100dvh;
@@ -210,10 +213,6 @@ profile-card {
         transform-origin: center;
     }
 
-    /* polygon {
-        fill: #e6e6e6;
-    } */
-
     .click-hint {
         display: block;
         margin-top: 0.5rem;
@@ -260,7 +259,7 @@ profile-card {
         grid-area: quick;
         margin-top: 0.5rem;
         padding: 0.75rem 1rem;
-        background: #f2f2f2;
+        background: lightgray;
         border-radius: 6px;
 
         h2 {
@@ -304,8 +303,6 @@ profile-card {
         max-width: 22ch;
 
         font-size: clamp(2.5rem, 5vw, 3.5rem);
-        /* background-color: #f2f2f2; */
-        /* padding: 0.25em; */
 
         animation: fadeInUp 1.2s ease-out forwards;
         animation-delay: 0.2s;
@@ -390,6 +387,13 @@ profile-card {
     button-container {
         justify-content: center;
     }
+} 
+
+/* Desktops */
+@media (min-width: 1025px) {
+    main {
+        grid-template-columns: 1.2fr 1fr;
+    }
 }
 
 /* Tablets/Laptops */
@@ -399,9 +403,55 @@ profile-card {
     }
 }
 
-/* Desktops */
-@media (min-width: 1025px) {
+/* Mobile */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+
+
+        nav ul {
+            flex-direction: column;
+            gap: 0.6rem;
+            width: 100%;
+
+            a {
+                font-size: 1.05rem;
+                display: block;
+            
+                &.active::after {
+                    width: 55%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
     main {
-        grid-template-columns: 1.2fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "visual"
+            "intro"
+            "quick";
+        text-align: center;
+        gap: 1.8rem;
+        padding: 2rem 1rem 5rem;
+        min-height: auto;
+    }
+
+    #profile-photo .spin-trigger svg {
+        width: 60vw;
+        max-width: 260px;
+    }
+}
+
+/* No Animation Responsiveness */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
